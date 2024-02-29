@@ -55,7 +55,7 @@
                             <a class="nav-link" href="{{ route('elements.cart_show_show') }}">
                                 <img src="{{ asset('Images/cart.svg') }}">
                                 <span style="display: inline-block; background-color: red; color: white; border-radius: 50%; padding: 3px 5px;">
-                                    {{ count(session('cart', [])) }}
+                                    {{ count($cart) }}
                                 </span>
                             </a>
                         </li>
@@ -114,23 +114,34 @@
                           <!-- ... autres parties de votre tableau ... -->
 
                           <tbody>
+
                             @foreach($cart as $productId => $product)
                                 <tr id="cart-row-{{ $productId }}">
                                     <td class="product-thumbnail">
-                                        <img src="{{ $product['image'] }}" alt="{{ $product['name'] }}" class="img-fluid">
+                                        <img src="{{ $product->image }}" alt="{{ $product->name }}" class="img-fluid">
                                     </td>
                                     <td class="product-name">
-                                        <h2 class="h5 text-black">{{ $product['name'] }}</h2>
+                                        <h2 class="h5 text-black">{{ $product->name }}</h2>
                                     </td>
-                                    <td class="unit-price">{{ $product['price'] }}</td>
+                                    <td class="unit-price">{{ $product->price }}</td>
                                     <td>
-                                        <input type="number" value="{{ $product['quantity'] }}" min="1" class="quantity-input" data-product-id="{{ $productId }}">
+                                        <div class="input-group mb-3 d-flex align-items-center quantity-container" style="max-width: 120px;">
+                                            <div class="input-group-prepend">
+                                              <button onclick="window.location='{{route('elements.addqtyofcartproductmoin' , ['id'=>$product->id_cart] )}}' " class="btn btn-outline-black decrease" type="button">&minus;</button>
+                                            </div>
+                                            <input type="number" class="form-control text-center quantity-amount" value="{{ $product->quantity }}" placeholder="" aria-label="Example text with button addon"
+                                            aria-describedby="button-addon1">
+                                            <div class="input-group-append">
+                                              <button onclick="window.location='{{route('elements.addqtyofcartproduct' , ['id'=>$product->id_cart] )}}' " class="btn btn-outline-black increase" type="button">&plus;</button>
+                                            </div>
+                                          </div>
+
                                     </td>
                                     <!-- ... autres colonnes ... -->
-                                    <td class="total-price">FCFA{{ $product['quantity'] * $product['price'] }}</td>
+                                    <td class="total-price">FCFA{{ $product->quantity * $product->price }}</td>
                                     <td>
                                         <!-- Lien de suppression avec une classe btn et btn-sm pour le style -->
-                                        <a href="{{ route('elements.remove_cart', ['id' => $productId]) }}" class="btn btn-black btn-sm">X</a>
+                                        <a href="{{ route('elements.remove_cart', ['id' => $product->id_cart]) }}" class="btn btn-black btn-sm">X</a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -177,7 +188,7 @@
 					  </div>
 					  <div class="col-md-12">
 						@if(count($cart) > 0)
-                        <button productId="<?=$productId?>" id="btnValidate" type="submit" class="btn btn-black btn-lg py-3 btn-block">
+                        <button onclick="window.location='{{ route('checkout.show') }}'" id="btnValidate" type="submit" class="btn btn-black btn-lg py-3 btn-block">
                             Proceed To Checkout</button>
 						@endif
 					</div>
@@ -281,53 +292,11 @@
 		<script src="js/tiny-slider.js"></script>
 		<script src="{{ asset('js/custom.js') }}"></script>
      <!-- Inclure Bootstrap JS (jQuery est requis pour Bootstrap JS) -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script>
-    (function($){
-
-        $("#btnValidate").click(function(e){
-            e.preventDefault();
-            console.log(e);
-            var productId = $(this).attr("productId")
-            var quantity = parseInt($('.quantity-input').val());
-            document.location.href = `/checkout/${productId}/${quantity}` ;
-        })
-
-    })(jQuery)
-</script>
-<script>
 
 
-
-    $(document).ready(function () {
-        // Gestion des changements de quantité
-        $('.quantity-input').change(function () {
-            updateTotal();
-        });
-
-        function updateTotal() {
-            var total = 0;
-
-            // Parcours de chaque ligne du panier
-            $('tbody tr').each(function () {
-                var quantity = parseInt($(this).find('.quantity-input').val());
-                var unitPrice = parseFloat($(this).find('.unit-price').text());
-                var totalPrice = quantity * unitPrice;
-
-                // Mise à jour du prix total pour chaque produit
-                $(this).find('.total-price').text('FCFA' + totalPrice.toFixed(2));
-
-                // Ajout du prix total au total général
-                total += totalPrice;
-            });
-
-            // Mise à jour du total général
-            $('#cart-total').text('Total: FCFA' + total.toFixed(2));
-        }
-    });
-</script>
 
 </body>
 </html>

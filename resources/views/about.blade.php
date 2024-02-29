@@ -44,7 +44,6 @@
 						<li><a class="nav-link" href="{{route('shopshow')}}">Shop</a></li>
 						<li class="nav-item active"><a class="nav-link" href="{{route('elements.about_show')}}">About us</a></li>
 						<li><a class="nav-link" href="{{route('service.show')}}">Services</a></li>
-						<li><a class="nav-link" href="blog.html">Blog</a></li>
 						<li><a class="nav-link" href="{{route('contacts.nosContact')}}">Contact us</a></li>
 					</ul>
 

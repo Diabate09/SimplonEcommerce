@@ -55,7 +55,7 @@
                             <a class="nav-link" href="{{ route('elements.cart_show_show') }}">
                                 <img src="{{ asset('Images/cart.svg') }}">
                                 <span style="display: inline-block; background-color: red; color: white; border-radius: 50%; padding: 3px 5px;">
-                                    {{ count(session('cart', [])) }}
+                                    {{ count($cart) }}
                                 </span>
                             </a>
                         </li>

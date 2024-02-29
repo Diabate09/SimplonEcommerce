@@ -103,7 +103,7 @@
 								<img src="images/truck.svg" alt="Image" class="imf-fluid">
 							</div>
 							<h3>Fast &amp; Free Shipping</h3>
-							<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+
 						</div>
 					</div>
 
@@ -113,7 +113,7 @@
 								<img src="images/bag.svg" alt="Image" class="imf-fluid">
 							</div>
 							<h3>Easy to Shop</h3>
-							<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+
 						</div>
 					</div>
 
@@ -123,7 +123,7 @@
 								<img src="images/support.svg" alt="Image" class="imf-fluid">
 							</div>
 							<h3>24/7 Support</h3>
-							<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+
 						</div>
 					</div>
 
@@ -133,7 +133,7 @@
 								<img src="images/return.svg" alt="Image" class="imf-fluid">
 							</div>
 							<h3>Hassle Free Returns</h3>
-							<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+
 						</div>
 					</div>
 
@@ -143,7 +143,7 @@
 								<img src="images/truck.svg" alt="Image" class="imf-fluid">
 							</div>
 							<h3>Fast &amp; Free Shipping</h3>
-							<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+
 						</div>
 					</div>
 
@@ -153,7 +153,7 @@
 								<img src="images/bag.svg" alt="Image" class="imf-fluid">
 							</div>
 							<h3>Easy to Shop</h3>
-							<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+
 						</div>
 					</div>
 
@@ -163,7 +163,7 @@
 								<img src="images/support.svg" alt="Image" class="imf-fluid">
 							</div>
 							<h3>24/7 Support</h3>
-							<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+
 						</div>
 					</div>
 
@@ -173,7 +173,7 @@
 								<img src="images/return.svg" alt="Image" class="imf-fluid">
 							</div>
 							<h3>Hassle Free Returns</h3>
-							<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+
 						</div>
 					</div>
 

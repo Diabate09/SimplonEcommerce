@@ -16,9 +16,9 @@ class Panier extends Model
         'product_id',
         'commande_id',
         'quantity',
+        'status'
     ];
 
-    // Indique que la colonne 'commande_id' peut être nulle
     protected $attributes = [
         'commande_id' => null,
     ];

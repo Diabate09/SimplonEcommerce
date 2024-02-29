@@ -54,12 +54,12 @@
 
 
                     <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-						<li><a class="nav-link" href="#"><img src="{{asset('Images/user.svg')}}"></a></li>
+                        <li><a class="nav-link" href="{{route('dashboard')}}"><img src="{{ asset('Images/user.svg') }}"></a></li>
 						<li class="nav-item active">
 							<a class="nav-link " href="{{ route('elements.cart_show_show')}}">
 
 								<img src="{{asset('Images/cart.svg')}}">
-								{{ count(session('cart', [])) }}
+								{{ count($cart) }}
 							</a>
 						</li>
 					</ul>
@@ -175,12 +175,12 @@
                                 @foreach($cart as $productId => $product)
                                 <tr>
                                     <td>
-                                        {{ $product['name'] }} <strong class="mx-2">x</strong>
-                                        {{ $product['quantity'] }}
+                                        {{ $product->name }} <strong class="mx-2">x</strong>
+                                        {{ $product->quantity }}
                                         {{-- Affichez la quantité du produit --}}
-                                        (Quantité récupérée : {{ $product['quantity'] }})
+                                        (Quantité récupérée : {{ $product->quantity }})
                                     </td>
-                                    <td >FCFA{{ $product['quantity'] * $product['price'] }}</td>
+                                    <td >FCFA{{ $product->quantity * $product->price }}</td>
                                 </tr>
                             @endforeach
 
@@ -200,7 +200,7 @@
                             </tbody>
                         </table>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-black btn-lg py-3 btn-block" onclick="window.location='{{ route('thankyou.show', ['commande_id' => $productId]) }}'">Place Order</button>
+                            <button type="submit" class="btn btn-black btn-lg py-3 btn-block" onclick="window.location='{{ route('thankyou.show') }}'">Place Order</button>
                         </div>
 
                         </form>

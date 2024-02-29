@@ -24,6 +24,9 @@ return new class extends Migration
 
                 $table->integer('quantity');
                 $table->timestamps();
+                Schema::table('cart', function (Blueprint $table) {
+                    $table->string('status')->nullable()->default('pending');
+                });
             });
 
     }
@@ -33,6 +36,14 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('paniers');
+        Schema::dropIfExists('panier');
+        Schema::table('cart', function (Blueprint $table) {
+            $table->dropColumn('status');
+        });
     }
 };
+
+
+
+
+

@@ -93,7 +93,7 @@
                       </svg>
                     </div> <!-- /.icon -->
                     <div class="service-contents">
-                      <p>43 Raymouth Rd. Baltemoer, London 3910</p>
+                      <p>Rivera Palmeraie ,Villa Simplon</p>
                     </div> <!-- /.service-contents-->
                   </div> <!-- /.service -->
                 </div>
@@ -106,7 +106,7 @@
                       </svg>
                     </div> <!-- /.icon -->
                     <div class="service-contents">
-                      <p>info@yourdomain.com</p>
+                      <p>salimatadiabate764@gmail.com</p>
                     </div> <!-- /.service-contents-->
                   </div> <!-- /.service -->
                 </div>
@@ -119,7 +119,7 @@
                       </svg>
                     </div> <!-- /.icon -->
                     <div class="service-contents">
-                      <p>+1 294 3925 3939</p>
+                      <p>+225 07 5803 5428</p>
                     </div> <!-- /.service-contents-->
                   </div> <!-- /.service -->
                 </div>

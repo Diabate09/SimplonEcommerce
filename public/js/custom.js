@@ -26,70 +26,48 @@
 
 
 
-	// (function() {
-    //     'use strict';
+	var sitePlusMinus = function() {
 
-    //     var sitePlusMinus = function() {
-    //         var value,
-    //             quantityContainers = document.getElementsByClassName('quantity-container');
+		var value,
+    		quantity = document.getElementsByClassName('quantity-container');
 
-    //         function createBindings(quantityContainer) {
-    //             var quantityAmount = quantityContainer.getElementsByClassName('quantity-amount')[0];
-    //             var increase = quantityContainer.getElementsByClassName('increase')[0];
-    //             var decrease = quantityContainer.getElementsByClassName('decrease')[0];
+		function createBindings(quantityContainer) {
+	      var quantityAmount = quantityContainer.getElementsByClassName('quantity-amount')[0];
+	      var increase = quantityContainer.getElementsByClassName('increase')[0];
+	      var decrease = quantityContainer.getElementsByClassName('decrease')[0];
+	      increase.addEventListener('click', function (e) { increaseValue(e, quantityAmount); });
+	      decrease.addEventListener('click', function (e) { decreaseValue(e, quantityAmount); });
+	    }
 
-    //             increase.addEventListener('click', function (e) { updateQuantityAndPrice(e, quantityAmount, 1); });
-    //             decrease.addEventListener('click', function (e) { updateQuantityAndPrice(e, quantityAmount, -1); });
-    //         }
+	    function init() {
+	        for (var i = 0; i < quantity.length; i++ ) {
+						createBindings(quantity[i]);
+	        }
+	    };
 
-    //         function init() {
-    //             for (var i = 0; i < quantityContainers.length; i++ ) {
-    //                 createBindings(quantityContainers[i]);
-    //             }
-    //         };
+	    function increaseValue(event, quantityAmount) {
+	        value = parseInt(quantityAmount.value, 10);
 
-    //         // function updateQuantityAndPrice(event, quantityAmount, increment) {
-    //         //     value = parseInt(quantityAmount.value, 10);
-    //         //     value = isNaN(value) ? 0 : value;
+	        console.log(quantityAmount, quantityAmount.value);
 
-    //         //     // Mettez à jour la quantité
-    //         //     value += increment;
-    //         //     value = Math.max(0, value);
+	        value = isNaN(value) ? 0 : value;
+	        value++;
+	        quantityAmount.value = value;
+	    }
 
-    //         //     quantityAmount.value = value;
+	    function decreaseValue(event, quantityAmount) {
+	        value = parseInt(quantityAmount.value, 10);
 
-    //         //     // Mettez à jour le prix en fonction de la quantité
-    //         //     var priceElement = quantityAmount.closest('tr').querySelector('.subtotal');
-    //         //     var pricePerItem = parseFloat(priceElement.dataset.price); // Récupérez le prix par article
-    //         //     var totalPrice = value * pricePerItem;
+	        value = isNaN(value) ? 0 : value;
+	        if (value > 0) value--;
 
-    //         //     priceElement.textContent = 'FCFA' + totalPrice.toFixed(2);
+	        quantityAmount.value = value;
+	    }
 
-    //         //     // Mettez à jour le prix total du panier
-    //         //     updateTotalPrice();
-    //         // }
+	    init();
 
-
-    //         // function updateTotalPrice() {
-    //         //     var total = 0;
-
-    //         //     // Itérez sur chaque produit dans le panier
-    //         //     for (var i = 0; i < quantityContainers.length; i++) {
-    //         //         var quantity = parseInt(quantityContainers[i].querySelector('.quantity-amount').value, 10);
-    //         //         var pricePerItem = parseFloat(quantityContainers[i].querySelector('.subtotal').dataset.price);
-    //         //         total += quantity * pricePerItem;
-    //         //     }
-
-    //         //     // Mettez à jour le prix total du panier
-    //         //     document.getElementById('cart-total-price').textContent = 'FCFA' + total.toFixed(2);
-    //         // }
-
-    //         init();
-    //     };
-
-    //     sitePlusMinus();
-    })();
+	};
+	sitePlusMinus();
 
 
-
-
+})()

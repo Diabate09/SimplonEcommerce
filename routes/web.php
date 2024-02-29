@@ -36,16 +36,20 @@ Route::post('/products', [ProductController::class, 'store'])->name('products.st
 Route::get('/addcart', [ProductController::class, 'Showcart'])->name('elements.cart_show_show');
 Route::get('/addcart/{id?}', [ProductController::class, 'cartShow'])->name('elements.cart_show');
 
+Route::get('/addqtyproductofcart/{id?}', [ProductController::class, 'addquantityproductcart'])->name('elements.addqtyofcartproduct');
+Route::get('/addqtyproductofcartmoi/{id?}', [ProductController::class, 'addquantityproductcartM'])->name('elements.addqtyofcartproductmoin');
+
+
 Route::get('/shop', [ShopController::class, 'ShopProduit'])->name('shopshow');
 
 Route::get('/removecart/{id}', [ProductController::class, 'removeFromCart'])->name('elements.remove_cart');
 
 
 
-Route::get('/thankyou/{commande_id}', [ProductController::class, 'showThankyou'])->name('thankyou.show');
+Route::get('/thankyou/{commande_id?}', [ProductController::class, 'showThankyou'])->name('thankyou.show');
 
 // Dans web.php
-Route::get('/checkout/{id}/{quantity}', [ProductController::class, 'showCheckout'])->name('checkout.show');
+Route::get('/checkout', [ProductController::class, 'showCheckout'])->name('checkout.show');
 Route::post('/checkout', [ProductController::class, 'passerCommande'])->name('commande');
 Route::get('/search', [ProductController::class, 'search'])->name('search');
 
